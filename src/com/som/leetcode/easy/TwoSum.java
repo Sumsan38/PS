@@ -1,4 +1,4 @@
-package com.som.problem.easy;
+package com.som.leetcode.easy;
 
 public class TwoSum {
 	// https://leetcode.com/problems/two-sum/

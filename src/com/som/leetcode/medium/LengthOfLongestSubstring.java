@@ -1,4 +1,4 @@
-package com.som.problem.medium;
+package com.som.leetcode.medium;
 
 public class LengthOfLongestSubstring {
 	// https://leetcode.com/problems/longest-substring-without-repeating-characters/

@@ -1,10 +1,24 @@
-package com.som.problem.programmers;
+package com.som.programmers.easy;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class AthleteCantFinish {
 	// https://programmers.co.kr/learn/courses/30/lessons/42576?language=java
+	
+	public AthleteCantFinish(){
+		String[] participant = {"leo", "kiki", "eden"};
+		String[] completion = {"eden", "kiki"};
+
+//		String[] participant = {"marina", "josipa", "nikola", "vinko", "filipa"};
+//		String[] completion = {"josipa", "filipa", "marina", "nikola"};
+		
+//		String[] participant = {"mislav", "stanko", "mislav", "ana"};
+//		String[] completion = {"stanko", "ana", "mislav"};
+		
+		String nameOne = solution(participant, completion);
+		System.out.println("Solution :: " + nameOne);
+	}
 	
 	public String solution(String[] participant, String[] completion) {
 		String answer = "";

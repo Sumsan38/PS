@@ -1,4 +1,4 @@
-package com.som.problem.hard;
+package com.som.leetcode.hard;
 
 import java.util.ArrayList;
 
