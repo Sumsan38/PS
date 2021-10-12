@@ -1,12 +1,7 @@
+Main Page
+https://star-girdle-900.notion.site/0892af59a788458a85f383ddb890ab7d
+
 # LeetCode
-https://leetcode.com/problemset/algorithms/
-- Practice LeetCode Algorithms
-- Reading
-https://baactree.tistory.com/52
+# Programmers
+# BOJ
 
-2021-03-09
-- TwoSum.java
-- LengthOfLongestSubstring.java
-
-2021-03-11
-- AthleteCantFinish.java
