@@ -2,3 +2,7 @@
 
 - LeetCode, Programmers, BOJ 소스 업로드
 
+- 깃 기본 설정
+http://git-scm.com/book/ko/v2
+
+- git diff 명령어 실행
