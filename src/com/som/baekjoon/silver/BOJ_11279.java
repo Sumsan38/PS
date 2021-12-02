@@ -2,6 +2,11 @@ package com.baekjoon;
 
 import java.io.*;
 
+/**
+ *@see<a href="https://www.acmicpc.net/problem/11279">
+ * https://www.acmicpc.net/problem/11279 최대 힙
+ *</a>
+ */
 public class BOJ_11279 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -39,10 +44,10 @@ public class BOJ_11279 {
                 int parentPoint = 0;
                 while (checkHeapPoint != 0) {
                     // 부모 값과 비교하면서 삽입 // 부모와 같은 값일 경우 그냥 삽입
-                    if(heapPoint % 2 == 0) {
-                        parentPoint = (heapPoint - 2) / 2; // 부모 값 오른쪽 노드
+                    if(checkHeapPoint % 2 == 0) {
+                        parentPoint = (checkHeapPoint - 2) / 2; // 부모 값 오른쪽 노드
                     } else {
-                        parentPoint = (heapPoint - 1) / 2; // 부모 값 왼쪽 노드
+                        parentPoint = (checkHeapPoint - 1) / 2; // 부모 값 왼쪽 노드
                     }
                     if(heap[checkHeapPoint] > heap[parentPoint]) {
                         int temp = heap[parentPoint];
