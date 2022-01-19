@@ -18,7 +18,7 @@ public class BOJ_6064 {
             int x = Integer.parseInt(token.nextToken());
             int y = Integer.parseInt(token.nextToken());
 
-            // 마지막 해의 경우, M과 N의 최소 공배수가된다
+            // 마지막 해의 경우, M과 N의 최소 공배수가
             int lastYear = lnm(Math.max(m, n), Math.min(m, n));
 
             // 참조 1 https://velog.io/@polynomeer/BOJ-6064.-%EC%B9%B4%EC%9E%89-%EB%8B%AC%EB%A0%A5
