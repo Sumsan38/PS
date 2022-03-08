@@ -3,8 +3,8 @@ package com.baekjoon;
 import java.io.*;
 import java.util.StringTokenizer;
 /*
-* https://www.acmicpc.net/problem/1149 RGB거리
-* */
+ * https://www.acmicpc.net/problem/1149 RGB거리
+ * */
 public class BOJ_1149 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
