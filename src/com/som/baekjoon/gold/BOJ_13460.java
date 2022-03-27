@@ -13,8 +13,14 @@ public class BOJ_13460 {
     static int n,m, INF = 987654321;
     static char[][] map;
     static Point startRed,startBlue;
+
+    /*
+    1. 기울이는 방향에 따라 다른 공은 신경쓰지 않고 벽이나 구멍이 나타날때까지 이동시킨다.
+    2. 겹치는 경우 이전 위치들과 비교해 위치를 수정해준다.
+    3. 정리된 위치들을 재귀함수로 넘겨서 다시 1로 돌아간다.
+    */
+
     public static void main(String[] args) throws IOException {
-//		InputReader reader = new InputReader("testcase.txt");
         InputReader reader = new InputReader();
         StringTokenizer st = new StringTokenizer(reader.readLine());
 
@@ -26,8 +32,8 @@ public class BOJ_13460 {
             String rowLine = reader.readLine();
             for (int col = 0; col < m; col++) {
                 map[row][col] = rowLine.charAt(col);
-                if(map[row][col] == 'R') startRed = new Point(row, col);
-                if(map[row][col] == 'B') startBlue = new Point(row, col);
+                if(map[row][col] == 'R') startRed = new Point(row, col); // startRed - 빨간 볼 위치를 가지고 있는 객체
+                if(map[row][col] == 'B') startBlue = new Point(row, col); // startBlue - 파란 볼 위치를 가지고 있는 객체
             }
         }
         int ret = findPath(startRed, startBlue, 0);
@@ -38,8 +44,9 @@ public class BOJ_13460 {
         System.out.println(ret);
     }
     static int minCnt = INF;
-    static int[] dr = {1,-1,0,0};
-    static int[] dc = {0,0,1,-1};
+    static int[] dr = {1,-1,0,0}; // 행 이동 // 상, 하, 우, 좌에 따른
+    static int[] dc = {0,0,1,-1}; // 열 이동 // 상, 하, 우, 좌에 따른
+
     public static int findPath(Point red, Point blue, int count){
         if(minCnt <= count || count > 10 || map[blue.row][blue.col] == 'O') return INF;
         if(map[red.row][red.col] == 'O') return count;
@@ -54,10 +61,11 @@ public class BOJ_13460 {
                 updatePosition(nextRed, nextBlue, red, blue, dr[i], dc[i]);
             }
 
-            //재귀
+            //재귀 // +1로 해준다. 이전에 더 빠른 루트로 Cnt 값을 찾은게 있으면 그걸로 해준다
+            // cnt 값으로 해줬기 때문에 recover 후에 따로 -1 해줄 필요가 없다
             minCnt = Math.min(findPath(nextRed, nextBlue,count+1), minCnt);
             //위치 복귀
-            recoverPosition(red, nextRed, blue, nextBlue);
+            recoverPosition(red, nextRed, blue, nextBlue); // 다른 방향에서 또 따져봐야하니까
         }
         return minCnt;
     }
@@ -67,6 +75,8 @@ public class BOJ_13460 {
     private static void updatePosition(Point nextRed, Point nextBlue, Point prevRed, Point prevBlue, int dr, int dc) {
         int redDistance = nextRed.distance(prevRed);
         int blueDistance = nextBlue.distance(prevBlue);
+
+        // 이동거리가 적을수록 더 먼저 도달했었다는 뜻
         //파란 공이 앞에 있었던 경우
         if(redDistance > blueDistance) {
             map[nextBlue.row][nextBlue.col] = 'B';
