@@ -1,4 +1,4 @@
-package com.somi.boj;
+package com.baekjoon;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -11,12 +11,11 @@ import java.util.StringTokenizer;
  * 평범한 배낭
  * 2022.04.20 16:30 ~ 17:00 브루트포스 구현 시간 초과
  * 참조 https://jeonyeohun.tistory.com/86
- *
+ * 2022.04.29 13:00 ~ 13:45 DP 맞았습니다
  * */
 public class BOJ_12865 {
 
-    static int currentW = Integer.MAX_VALUE;
-    static int bestV = Integer.MIN_VALUE;
+    static int bestV = 0;
     static int n;
     static int k;
 
@@ -33,6 +32,8 @@ public class BOJ_12865 {
         n = Integer.parseInt(token.nextToken()); // 물건의 수 N개
         k = Integer.parseInt(token.nextToken()); // 준서가 버틸 수 있는 무게 K
 
+        dp = new int[k + 1];
+
         itemW = new int[n];
         values = new int[n];
         choose = new boolean[n];
@@ -43,12 +44,24 @@ public class BOJ_12865 {
             values[i] = Integer.parseInt(token.nextToken());
         }
 
+        selectItem();
+
         System.out.println(bestV);
     }
 
-    // dp로 푸는 방법
-    static int[][] dp;
+    // dp로 푸는 방법 // 100퍼센트에서 틀림
+    static int[] dp;
+    private static void selectItem(){
+        for (int i = 0; i < itemW.length; i++) {
+            int w = itemW[i];
+            int v = values[i];
 
+            for (int j = k; j >= w; j--) {
+                dp[j] = Math.max(dp[j], dp[j - w] + v);
+                bestV = Math.max(dp[j], bestV);
+            }
+        }
+    }
 
     // 브루트포스로 푸는 방법은 시간초과
     private static void chooseItem(int totalweight, int totalvalue, int beforeChoose){
