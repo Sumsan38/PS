@@ -4,8 +4,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MostReceivedGift {
+    // 2024 KAKAO WINTER INTERNSHIP
     // https://school.programmers.co.kr/learn/courses/30/lessons/258712?language=java
-    // 가장 많이 받은 선물
+    // 가장 많이 받은 선물 [문제 해석]
     // String, HashMap (key, value)
 
     public int solution(String[] friends, String[] gifts) {
