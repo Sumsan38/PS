@@ -1,4 +1,4 @@
-package com.leetcode.medium;
+package com.som.leetcode.medium;
 
 public class MaximumValueOfOrderedTripletII {
     // Maximum Value of an Ordered Triplet II - LeetCode
